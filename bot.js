@@ -5,8 +5,8 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  botRegex = /^\/cool guy$/;
-  //var botRegex = /[\w\W]/;
+  //var botRegex = /^\/cool guy$/;
+  var botRegex = /[\s\S]$/;
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -23,7 +23,7 @@ function postMessage(text) {
   var botResponse, options, body, botReq;
 
   //botResponse = cool();
-  botResponse = "Hi there!";
+  botResponse = "Hi there at " + Date.now();
   //botResponse = text;
 
   options = {
