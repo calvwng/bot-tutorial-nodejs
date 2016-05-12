@@ -4,10 +4,10 @@ var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
 function respond() {
-  var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /[\s\S]*/;
+  var request = JSON.parse(this.req.chunks[0]);
+  //var botRegex = /[\s\S]*/;
 
-  if(request.text && botRegex.test(request.text)) {
+  if(request.text) //&& botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(request.text);
     this.res.end();
